@@ -1,27 +1,36 @@
-# AuraInterior
+# Sketchomes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+## Installation
 
-## Development server
+To get started, follow these steps:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clone this repository to your local machine.
 
-## Code scaffolding
+```bash
+git clone https://github.com/haroonsaifi17/Sketchomes.git && cd Sketchomes
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Install project dependencies using npm
 
-## Build
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+To run the app, use the following command:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+ng serve
+```
 
-## Running end-to-end tests
+The client app will be accessible at [http://localhost:4200](http://localhost:4200).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Contribution:
 
-## Further help
+Contributions are welcome! Feel free to submit pull requests or open issues for any suggestions, bug fixes, or improvements.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### License:
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

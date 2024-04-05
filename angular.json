@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AuraInterior": {
+    "Sketchomes": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/aura-interior",
+            "outputPath": "dist/sketchomes",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AuraInterior:build:production"
+              "buildTarget": "Sketchomes:build:production"
             },
             "development": {
-              "buildTarget": "AuraInterior:build:development"
+              "buildTarget": "Sketchomes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "AuraInterior:build"
+            "buildTarget": "Sketchomes:build"
           }
         },
         "test": {
