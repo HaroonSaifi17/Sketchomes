@@ -27,3 +27,11 @@
   font-family: 'Masionlight';
   src: url('./assets/font/MaisonNeueExtendedLight.otf') format('opentype');
 }
+@font-face {
+  font-family: 'antique';
+  src: url('./assets/font/antiqueroman.woff') format('woff');
+}
+@font-face {
+  font-family: 'antiqueItalic';
+  src: url('./assets/font/antiqueromanitalic.woff') format('woff');
+}

@@ -1,13 +1,20 @@
-<div class="absolute z-10 w-full text-white">
+<div  class="absolute z-10 w-full duration-500 text-white">
+  <div #b1 class="absolute top-0 duration-500 h-0 w-full bg-black -z-10">
+  </div>
   <div class="mx-auto max-w-screen-2xl py-5 px-[5vw]">
     <div class="flex text-xs justify-between items-center">
+      <div class="hidden max-md:block">
+        <a class="font-[antique] text-xl" href=""> Sketchomes </a>
+      </div>
       <div class="flex gap-4">
-        <div class="flex flex-col gap-[5px]">
-          <div class="inline-block h-[2px] w-12 bg-white"></div>
-          <div class="inline-block h-[2px] w-12 bg-white"></div>
-          <div class="inline-block h-[2px] w-12 bg-white"></div>
-        </div>
-        <ul class="flex gap-4 items-center">
+        <a (click)="navState = !navState">
+          <div class="flex flex-col gap-[5px]">
+            <div class="inline-block h-[2px] w-12 bg-white"></div>
+            <div class="inline-block h-[2px] w-12 bg-white"></div>
+            <div class="inline-block h-[2px] w-12 bg-white"></div>
+          </div>
+        </a>
+        <ul class="flex gap-4 items-center max-md:hidden">
           <li><a href="">HOME</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
           <li><a href="">SERVICES</a></li>
@@ -16,12 +23,33 @@
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
           <li><a href="">CONTACT US</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
-          <li><a href="">QUICK INQUIRY</a></li>
+          <li><a href="" class="blink ">QUICK INQUIRY</a></li>
         </ul>
       </div>
-      <div>
+      <div class="max-md:hidden">
         <i class="fa-solid fa-phone mr-2"></i><a href="tel://7011764114">+91 7011764114</a>
       </div>
     </div>
   </div>
 </div>
+<div [style.left]="navState ? '-100%' : '0'"
+  class="bg-white ease-out z-30 fixed t1 top-0 p-16 pt-10 left-0 h-[100vh] w-[30vw] max-md:w-[100vw]">
+  <div class="flex flex-col gap-16">
+    <a (click)="navState = !navState">
+      <div class="w-8 h-8 flex flex-col justify-center">
+        <div class="w-8 h-[2px] rotate-45 inline-block bg-black translate-y-[2px]"></div>
+        <div class="w-8 h-[2px] -rotate-45 inline-block bg-black"></div>
+      </div>
+    </a>
+    <ul class="text-3xl flex flex-col gap-2 text-gray-400">
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="#">Career</a></li>
+      <li><a href="#">FAQ's</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div  (click)="navState=!navState" [style.display]="navState ? 'none' : 'block'" class="fixed h-full duration-500 opacity-20 w-full bg-black z-20"></div>
