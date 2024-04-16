@@ -5,16 +5,17 @@
 .blink {
   animation: blink 1s infinite;
 }
+
 @keyframes blink {
-    0% {
-      color: white;
-    }
-
-    50% {
-      color: #fab130;
-    }
-
-    100% {
-      color: white;
-    }
+  0% {
+    color: white;
   }
+
+  50% {
+    color: #fab130;
+  }
+
+  100% {
+    color: white;
+  }
+}

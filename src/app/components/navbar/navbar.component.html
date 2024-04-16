@@ -1,7 +1,6 @@
-<div  class="absolute z-10 w-full duration-500 text-white">
-  <div #b1 class="absolute top-0 duration-500 h-0 w-full bg-black -z-10">
-  </div>
-  <div class="mx-auto max-w-screen-2xl py-5 px-[5vw]">
+<div class="fixed z-10 w-full duration-500 text-white">
+  <div #b1 class="absolute top-0 duration-500 h-0 w-full bg-black -z-10"></div>
+  <div class="mx-auto max-w-screen-2xl py-6 px-[5vw]">
     <div class="flex text-xs justify-between items-center">
       <div class="hidden max-md:block">
         <a class="font-[antique] text-xl" href=""> Sketchomes </a>
@@ -23,7 +22,7 @@
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
           <li><a href="">CONTACT US</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
-          <li><a href="" class="blink ">QUICK INQUIRY</a></li>
+          <li><a href="" class="blink">QUICK INQUIRY</a></li>
         </ul>
       </div>
       <div class="max-md:hidden">
@@ -33,7 +32,7 @@
   </div>
 </div>
 <div [style.left]="navState ? '-100%' : '0'"
-  class="bg-white ease-out z-30 fixed t1 top-0 p-16 pt-10 left-0 h-[100vh] w-[30vw] max-md:w-[100vw]">
+  class="bg-white ease-out z-30 fixed t1 top-0 p-12 pt-6 left-0 h-[100vh] w-[30vw] max-md:w-[100vw]">
   <div class="flex flex-col gap-16">
     <a (click)="navState = !navState">
       <div class="w-8 h-8 flex flex-col justify-center">
@@ -52,4 +51,12 @@
     </ul>
   </div>
 </div>
-<div  (click)="navState=!navState" [style.display]="navState ? 'none' : 'block'" class="fixed h-full duration-500 opacity-20 w-full bg-black z-20"></div>
+<div (click)="navState = !navState" [style.display]="navState ? 'none' : 'block'"
+  class="fixed h-full duration-500 opacity-20 w-full bg-black z-20">
+</div>
+<div class="md:hidden text-white fixed bottom-0 left-0 flex text-xs border-b-[70px] mb-[-70px] border-b-black bg-black w-full">
+<div class="flex-1 text-center border-gray-200 border py-1 "><a class="font-[Masionlight] " href="">  Call Now</a></div>
+<div class="flex-1 text-center border-gray-200 border  py-1 "><a  class="font-[Masionlight] " href="">  Projects</a></div>
+<div class="flex-1 text-center border-gray-200 border py-1 "><a class="font-[Masionlight] blink "  href="">  Quick Inquiry</a></div>
+
+</div>

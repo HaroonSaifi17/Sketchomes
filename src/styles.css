@@ -9,6 +9,11 @@
   font-family: Masion;
 }
 
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @font-face {
   font-family: 'Masion';
   src: url('./assets/font/MaisonNeueExtendedMedium.otf') format('opentype');
@@ -34,4 +39,8 @@
 @font-face {
   font-family: 'antiqueItalic';
   src: url('./assets/font/antiqueromanitalic.woff') format('woff');
+}
+@font-face {
+  font-family: 'oP';
+  src: url('./assets/font/OPTICuento.otf') format('opentype');
 }
