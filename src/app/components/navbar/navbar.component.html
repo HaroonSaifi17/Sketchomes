@@ -5,12 +5,15 @@
       <div class="hidden max-md:block">
         <a class="font-[antique] text-xl" href=""> Sketchomes </a>
       </div>
+      <div class="ml-auto px-4 text-sm md:hidden">
+        <a href="tel://+917011764114">Call Now</a>
+      </div>
       <div class="flex gap-4">
         <a (click)="navState = !navState">
           <div class="flex flex-col gap-[5px]">
-            <div class="inline-block h-[2px] w-12 bg-white"></div>
-            <div class="inline-block h-[2px] w-12 bg-white"></div>
-            <div class="inline-block h-[2px] w-12 bg-white"></div>
+            <div class="inline-block h-[2px] max-md:w-8 w-12 bg-white"></div>
+            <div class="inline-block h-[2px] max-md:w-8 w-12 bg-white"></div>
+            <div class="inline-block h-[2px] max-md:w-8 w-12 bg-white"></div>
           </div>
         </a>
         <ul class="flex gap-4 items-center max-md:hidden">
@@ -26,17 +29,22 @@
         </ul>
       </div>
       <div class="max-md:hidden">
-        <i class="fa-solid fa-phone mr-2"></i><a href="tel://7011764114">+91 7011764114</a>
+        <i class="fa-solid fa-phone mr-2"></i
+        ><a href="tel://7011764114">+91 7011764114</a>
       </div>
     </div>
   </div>
 </div>
-<div [style.left]="navState ? '-100%' : '0'"
-  class="bg-white ease-out z-30 fixed t1 top-0 p-12 pt-6 left-0 h-[100vh] w-[30vw] max-md:w-[100vw]">
+<div
+  [style.left]="navState ? '-100%' : '0'"
+  class="bg-white ease-out z-30 fixed t1 top-0 p-12 pt-6 left-0 h-[100vh] w-[30vw] max-md:w-[100vw]"
+>
   <div class="flex flex-col gap-16">
     <a (click)="navState = !navState">
       <div class="w-8 h-8 flex flex-col justify-center">
-        <div class="w-8 h-[2px] rotate-45 inline-block bg-black translate-y-[2px]"></div>
+        <div
+          class="w-8 h-[2px] rotate-45 inline-block bg-black translate-y-[2px]"
+        ></div>
         <div class="w-8 h-[2px] -rotate-45 inline-block bg-black"></div>
       </div>
     </a>
@@ -51,12 +59,28 @@
     </ul>
   </div>
 </div>
-<div (click)="navState = !navState" [style.display]="navState ? 'none' : 'block'"
-  class="fixed h-full duration-500 opacity-20 w-full bg-black z-20">
+<div
+  (click)="navState = !navState"
+  [style.display]="navState ? 'none' : 'block'"
+  class="fixed h-full duration-500 opacity-20 w-full bg-black z-20"
+></div>
+<div
+  class="md:hidden text-white fixed bottom-0 left-0 flex text-xs border-b-[70px] mb-[-70px] border-b-black bg-black w-full"
+>
+  <div class="flex-1 text-center border-gray-200 border py-2">
+    <a class="font-[Masionlight]" href="tel://+917011764114"> Call Now</a>
+  </div>
+  <div class="flex-1 text-center border-gray-200 border py-2">
+    <a class="font-[Masionlight]" href=""> Projects</a>
+  </div>
+  <div class="flex-1 text-center border-gray-200 border py-2">
+    <a class="font-[Masionlight] blink" href=""> Quick Inquiry</a>
+  </div>
 </div>
-<div class="md:hidden text-white fixed bottom-0 left-0 flex text-xs border-b-[70px] mb-[-70px] border-b-black bg-black w-full">
-<div class="flex-1 text-center border-gray-200 border py-1 "><a class="font-[Masionlight] " href="">  Call Now</a></div>
-<div class="flex-1 text-center border-gray-200 border  py-1 "><a  class="font-[Masionlight] " href="">  Projects</a></div>
-<div class="flex-1 text-center border-gray-200 border py-1 "><a class="font-[Masionlight] blink "  href="">  Quick Inquiry</a></div>
-
+<div class="fixed bottom-14 right-6 md:hidden">
+  <a
+    class="p-4 bg-black rounded-full text-white aspect-square flex justify-center items-center"
+    href="tel://+917011764114"
+    ><i class="fa-solid fa-phone"></i
+  ></a>
 </div>
