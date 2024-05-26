@@ -1,26 +1,53 @@
 <div class="relative bg-black -z-30">
-  <div [style.zIndex]="selectImg == 0 ? '-10' : '-20'" class="absolute top-0 right-0 w-full">
-    <img class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
-      src="../../../assets/images/hero2.jpg" alt="" />
-  </div>
-  <div [style.zIndex]="selectImg == 1 ? '-10' : '-20'" class="absolute top-0 right-0 w-full">
-    <img class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
-      src="../../../assets/images/hero1.jpg" alt="" />
+  <div
+    [style.opacity]="selectImg == 0 ? '1' : '0'"
+    class="absolute top-0 -z-10 right-0 w-full duration-500"
+  >
+    <img
+      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
+      src="/assets/images/hero2.webp"
+      alt="background"
+    />
   </div>
   <div
-    class="relative top-0 right-0 w-full aspect-[21/10] max-md:justify-center max-md:aspect-[5/4] bgHero flex flex-col justify-between max-w-screen-2xl mx-auto px-[5vw] py-12 max-sm:pt-[76px] pb-4">
+    [style.opacity]="selectImg == 1 ? '1' : '0'"
+    class="absolute top-0 -z-10 right-0 w-full duration-500"
+  >
+    <img
+      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
+      src="/assets/images/hero1.webp"
+      alt="background"
+    />
+  </div>
+  <div
+    [style.opacity]="selectImg == 2 ? '1' : '0'"
+    class="absolute top-0 -z-10 right-0 w-full duration-500"
+  >
+    <img
+      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
+      src="/assets/images/hero3.webp"
+      alt="background"
+    />
+  </div>
+  <div
+    class="relative top-0 right-0 w-full aspect-[21/10] z-10 max-md:justify-center max-md:aspect-[5/4] bgHero flex flex-col justify-between max-w-screen-2xl mx-auto px-[5vw] py-12 max-sm:pt-[76px] pb-8"
+  >
     <div></div>
     <div class="max-w-[600px]">
-      <h1 class="text-6xl max-sm:text-3xl max-lg:text-5xl text-white leading-[70px] font-[oP]">
+      <h1
+        class="text-6xl max-sm:text-3xl max-lg:text-5xl text-white leading-[70px] font-[oP]"
+      >
         BESPOKE & LUXURY INTERIOR DESIGNING
       </h1>
-      <h2 class="text-5xl max-sm:text-2xl max-lg:text-4xl text-white leading-[70px] font-[oP]">
+      <h2
+        class="text-5xl max-sm:text-2xl max-lg:text-4xl text-white leading-[70px] font-[oP]"
+      >
         where people love to stay
       </h2>
     </div>
     <div class="flex justify-between items-center max-md:hidden">
       <div class="flex-1 max-md:hidden">
-        <p class="text-white text-5xl max-lg:text-3xl font-[oP]">SKETCHOMES</p>
+        <p class="text-white text-4xl max-lg:text-3xl font-[oP]">SKETCHOMES</p>
       </div>
       <div class="flex-1 flex justify-center">
         <a href="" class="text-white mx-auto">

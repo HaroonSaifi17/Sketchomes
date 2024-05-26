@@ -12,7 +12,7 @@ export class HeroComponent implements OnInit{
 
   ngOnInit() {
     setInterval(() => {
-      if (this.selectImg == 1) {
+      if (this.selectImg == 2) {
         this.selectImg = 0;
       }
       else{
