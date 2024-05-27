@@ -27,7 +27,7 @@
       </p>
     </div>
   </div>
-  <div class="inline-block relative aspect-[21/7] max-md:aspect-[3/2] w-[100vw]">
+  <div class="inline-block seo-bg -z-20 relative aspect-[21/7] max-md:aspect-[3/2] w-[100vw]">
     <div #bg class="w-[100vw] -z-10 absolute top-0 left-0">
       <img class="w-full" src="/assets/images/info.webp" alt="bg" />
     </div>

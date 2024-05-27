@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import * as THREE from 'three';
 
 @Component({
@@ -9,6 +9,8 @@ import * as THREE from 'three';
   styleUrls: ['./photo-sphere.component.css'],
 })
 export class PhotoSphereComponent implements AfterViewInit {
+  @ViewChild('container') container!: ElementRef;
+
   camera: THREE.PerspectiveCamera;
   scene: THREE.Scene;
   renderer: THREE.WebGLRenderer;
@@ -24,7 +26,7 @@ export class PhotoSphereComponent implements AfterViewInit {
   theta = 0;
 
   constructor() {
-    this.camera = new THREE.PerspectiveCamera(75, 3 / 2, 1, 1100);
+    this.camera = new THREE.PerspectiveCamera(70, 3 / 2, 1, 1100);
     this.scene = new THREE.Scene();
     this.renderer = new THREE.WebGLRenderer();
   }
@@ -35,20 +37,19 @@ export class PhotoSphereComponent implements AfterViewInit {
   }
 
   init(): void {
-    const container = document.getElementById('container');
-    if (!container) return;
+    this.renderer.setSize(Math.min(1536, window.innerWidth), Math.min(1400/1.5,window.innerWidth / 1.5));
+    this.container.nativeElement.appendChild(this.renderer.domElement);
 
-    this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.renderer.setSize(window.innerWidth, window.innerWidth / 1.5);
-    container.appendChild(this.renderer.domElement);
-
-    container.style.touchAction = 'none';
-    container.addEventListener('pointerdown', this.onPointerDown.bind(this));
+    this.container.nativeElement.style.touchAction = 'none';
+    this.container.nativeElement.addEventListener(
+      'pointerdown',
+      this.onPointerDown.bind(this),
+    );
 
     window.addEventListener('resize', this.onWindowResize.bind(this));
     const texture = new THREE.TextureLoader().load('/assets/images/render.jpg');
-    texture.minFilter = THREE.LinearFilter; // Set texture filtering for better quality
-    texture.magFilter = THREE.LinearFilter;
+    this.renderer.toneMapping = THREE.LinearToneMapping;
+    this.renderer.toneMappingExposure = 1;
 
     const material = new THREE.MeshBasicMaterial({ map: texture });
 
@@ -63,7 +64,7 @@ export class PhotoSphereComponent implements AfterViewInit {
     this.camera.aspect = 3 / 2;
     this.camera.updateProjectionMatrix();
 
-    this.renderer.setSize(window.innerWidth, window.innerWidth / 1.5);
+    this.renderer.setSize(Math.min(1536, window.innerWidth), Math.min(1400/1.5,window.innerWidth / 1.5));
   }
 
   onPointerDown(event: PointerEvent) {
@@ -106,7 +107,7 @@ export class PhotoSphereComponent implements AfterViewInit {
 
   update() {
     if (this.isUserInteracting === false) {
-      this.lon += 0.1;
+      this.lon += 0.07;
     }
 
     this.lat = Math.max(-85, Math.min(85, this.lat));
