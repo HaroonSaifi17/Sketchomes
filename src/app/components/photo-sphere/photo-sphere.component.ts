@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 @Component({
   selector: 'app-photo-sphere',
@@ -15,7 +14,16 @@ export class PhotoSphereComponent implements AfterViewInit {
   private camera!: THREE.PerspectiveCamera;
   private scene!: THREE.Scene;
   private renderer!: THREE.WebGLRenderer;
-  private sphere!: THREE.Mesh;
+
+  isUserInteracting = false;
+  onPointerDownMouseX = 0;
+  onPointerDownMouseY = 0;
+  lon = 0;
+  onPointerDownLon = 0;
+  lat = 0;
+  onPointerDownLat = 0;
+  phi = 0;
+  theta = 0;
 
   constructor() {}
 
@@ -25,23 +33,24 @@ export class PhotoSphereComponent implements AfterViewInit {
   }
 
   private init(): void {
-    const width = window.innerWidth;
-    const height = (window.innerWidth / 3) * 2;
+    const width = Math.min(window.innerWidth,1536);
+    const height = (width / 3) * 2;
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas.nativeElement,
       antialias: true,
     });
     this.renderer.setSize(width, height, true);
+    this.canvas.nativeElement.style.touchAction = 'none';
+    this.canvas.nativeElement.addEventListener(
+      'pointerdown',
+      this.onPointerDown.bind(this),
+    );
 
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(75, 3 / 2, 0.1, 1000);
-    this.camera.position.z = 0.01;
-
-    const controls = new OrbitControls(this.camera, this.renderer.domElement);
-    controls.enableRotate = true;
-    controls.enablePan = false;
+    this.camera.position.z = 0;
 
     const texture = new THREE.TextureLoader().load(
       '/assets/images/render.jpg',
@@ -55,8 +64,8 @@ export class PhotoSphereComponent implements AfterViewInit {
           side: THREE.BackSide,
           map: texture,
         });
-        this.sphere = new THREE.Mesh(geometry, material);
-        this.scene.add(this.sphere);
+        const sphere = new THREE.Mesh(geometry, material);
+        this.scene.add(sphere);
       },
     );
 
@@ -64,8 +73,8 @@ export class PhotoSphereComponent implements AfterViewInit {
   }
 
   private onWindowResize(): void {
-    const width = window.innerWidth;
-    const height = (window.innerWidth / 3) * 2;
+    const width = Math.min(window.innerWidth,1536);
+    const height = (width / 3) * 2;
     this.camera.aspect = 3 / 2;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, true);
@@ -74,10 +83,53 @@ export class PhotoSphereComponent implements AfterViewInit {
   private animate(): void {
     requestAnimationFrame(() => this.animate());
 
-    if (this.sphere) {
-      this.sphere.rotation.y += 0.002;
+    if (this.isUserInteracting === false) {
+      this.lon += 0.07;
     }
 
+    this.lat = Math.max(-85, Math.min(85, this.lat));
+    this.phi = THREE.MathUtils.degToRad(90 - this.lat);
+    this.theta = THREE.MathUtils.degToRad(this.lon);
+
+    const x = 500 * Math.sin(this.phi) * Math.cos(this.theta);
+    const y = 500 * Math.cos(this.phi);
+    const z = 500 * Math.sin(this.phi) * Math.sin(this.theta);
+
+    this.camera.lookAt(x, y, z);
+
     this.renderer.render(this.scene, this.camera);
+  }
+
+  onPointerDown(event: PointerEvent) {
+    if (event.button !== 0) return;
+
+    this.isUserInteracting = true;
+
+    this.onPointerDownMouseX = event.clientX;
+    this.onPointerDownMouseY = event.clientY;
+
+    this.onPointerDownLon = this.lon;
+    this.onPointerDownLat = this.lat;
+
+    document.addEventListener('pointermove', this.onPointerMove.bind(this));
+    document.addEventListener('pointerup', this.onPointerUp.bind(this));
+  }
+
+  onPointerMove(event: PointerEvent) {
+    if (!this.isUserInteracting) return;
+
+    this.lon =
+      (this.onPointerDownMouseX - event.clientX) * 0.1 + this.onPointerDownLon;
+    this.lat =
+      (event.clientY - this.onPointerDownMouseY) * 0.1 + this.onPointerDownLat;
+  }
+
+  onPointerUp(event: PointerEvent) {
+    if (!this.isUserInteracting) return;
+
+    this.isUserInteracting = false;
+
+    document.removeEventListener('pointermove', this.onPointerMove.bind(this));
+    document.removeEventListener('pointerup', this.onPointerUp.bind(this));
   }
 }
