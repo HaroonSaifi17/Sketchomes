@@ -40,6 +40,7 @@ export class PhotoSphereComponent implements AfterViewInit {
       canvas: this.canvas.nativeElement,
       antialias: true,
     });
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(width, height, true);
     this.canvas.nativeElement.style.touchAction = 'none';
     this.canvas.nativeElement.addEventListener(
