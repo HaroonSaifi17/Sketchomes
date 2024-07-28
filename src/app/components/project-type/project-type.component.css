@@ -1,3 +1,6 @@
 .bbg{
   background: url(/assets/images/bbg.jpg) no-repeat center center/cover;
 }
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
