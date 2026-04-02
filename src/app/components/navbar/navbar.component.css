@@ -1,9 +1,70 @@
 .t1 {
-  transition: 1s cubic-bezier(0.75, 0, 0.1, 1);
+  transition: 0.9s cubic-bezier(0.75, 0, 0.1, 1);
 }
 
 .blink {
   animation: blink 1s infinite;
+}
+
+li a,
+.text-3xl a,
+.font-\[Masionlight\] {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+li a::after,
+.text-3xl a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+li a:hover::after,
+.text-3xl a:hover::after {
+  transform: scaleX(1);
+}
+
+.text-3xl a:hover {
+  color: #111;
+}
+
+.menu-toggle,
+.menu-close {
+  display: inline-flex;
+  padding: 6px;
+}
+
+.quick-link {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .side-nav-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .mobile-quickbar {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .float-call-btn {
+    right: 16px;
+    bottom: 72px;
+  }
 }
 
 @keyframes blink {

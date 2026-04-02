@@ -1,0 +1,13 @@
+.home-main {
+  display: block;
+}
+
+.section-placeholder {
+  min-height: 320px;
+  background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+  opacity: 0.35;
+}
+
+.section-placeholder-light {
+  background: linear-gradient(180deg, #f2f2f2 0%, #e6e6e6 100%);
+}

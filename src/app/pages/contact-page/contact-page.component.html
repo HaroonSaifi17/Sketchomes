@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<main>
+  <section class="hero-banner" style="background-image: url('/assets/images/render.webp')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content max-w-screen-2xl mx-auto px-[5vw]">
+      <p class="hero-kicker">Contact Us</p>
+      <h1 class="hero-title">Tell us about your space and we will get in touch</h1>
+    </div>
+  </section>
+
+  <section class="content-wrap">
+    <div class="max-w-screen-2xl mx-auto px-[5vw] py-20 grid lg:grid-cols-2 gap-16">
+      <div class="contact-info reveal-fade-up">
+        <h2>Studio Details</h2>
+        <p>Gurgaon, Delhi NCR, India</p>
+        <a href="tel:+917011764114">+91 70117 64114</a>
+        <a href="mailto:hello@sketchomes.in">hello@sketchomes.in</a>
+      </div>
+
+      <form class="contact-form reveal-fade-up" (ngSubmit)="submitForm()">
+        <label>
+          Full Name
+          <input [(ngModel)]="name" name="name" type="text" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input [(ngModel)]="email" name="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          Phone
+          <input [(ngModel)]="phone" name="phone" type="tel" autocomplete="tel" required />
+        </label>
+        <label>
+          Message
+          <textarea [(ngModel)]="message" name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

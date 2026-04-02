@@ -1,0 +1,23 @@
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #fab130;
+}
+
+input {
+  transition: border-color 0.25s ease;
+}
+
+input:focus {
+  border-color: #fab130;
+}
+
+@media (max-width: 700px) {
+  a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+  }
+}

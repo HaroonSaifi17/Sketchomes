@@ -1,32 +1,38 @@
 <div class="relative bg-black -z-30">
   <div
     [style.opacity]="selectImg == 0 ? '1' : '0'"
-    class="absolute top-0 -z-10 right-0 w-full duration-500"
+    class="absolute top-0 -z-10 right-0 w-full duration-700"
   >
     <img
-      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
+      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl hero-zoom"
       src="/assets/images/hero2.webp"
       alt="background"
+      width="1999"
+      height="952"
     />
   </div>
   <div
     [style.opacity]="selectImg == 1 ? '1' : '0'"
-    class="absolute top-0 -z-10 right-0 w-full duration-500"
+    class="absolute top-0 -z-10 right-0 w-full duration-700"
   >
     <img
-      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
+      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl hero-zoom"
       src="/assets/images/hero1.webp"
       alt="background"
+      width="1999"
+      height="952"
     />
   </div>
   <div
     [style.opacity]="selectImg == 2 ? '1' : '0'"
-    class="absolute top-0 -z-10 right-0 w-full duration-500"
+    class="absolute top-0 -z-10 right-0 w-full duration-700"
   >
     <img
-      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl"
+      class="w-full object-cover object-center aspect-[21/10] max-md:aspect-[5/4] mx-auto max-w-screen-2xl hero-zoom"
       src="/assets/images/hero3.webp"
       alt="background"
+      width="1999"
+      height="952"
     />
   </div>
   <div
@@ -35,12 +41,12 @@
     <div></div>
     <div class="max-w-[600px]">
       <h1
-        class="text-6xl max-sm:text-3xl max-lg:text-5xl text-white leading-[70px] font-[oP]"
+        class="text-6xl max-sm:text-3xl max-lg:text-5xl text-white leading-[70px] font-[oP] reveal-fade-up"
       >
         BESPOKE & LUXURY INTERIOR DESIGNING
       </h1>
       <h2
-        class="text-5xl max-sm:text-2xl max-lg:text-4xl text-white leading-[70px] font-[oP]"
+        class="text-5xl max-sm:text-2xl max-lg:text-4xl text-white leading-[70px] font-[oP] reveal-fade-up delay-1"
       >
         where people love to stay
       </h2>
@@ -50,8 +56,8 @@
         <p class="text-white text-4xl max-lg:text-3xl font-[oP]">SKETCHOMES</p>
       </div>
       <div class="flex-1 flex justify-center">
-        <a href="" class="text-white mx-auto">
-          <p class="text-center">EXPLORE</p>
+        <a routerLink="/about" class="text-white mx-auto hover-lift">
+          <p class="text-center tracking-[0.2em] text-xs">EXPLORE</p>
           <p class="text-center animate-bounce1">
             <i class="fa-solid fa-lg fa-chevron-down"></i>
           </p>

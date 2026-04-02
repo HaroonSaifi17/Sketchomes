@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<main>
+  <section class="hero-banner" style="background-image: url('/assets/images/hero1.webp')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content max-w-screen-2xl mx-auto px-[5vw]">
+      <p class="hero-kicker">About Sketchomes</p>
+      <h1 class="hero-title">Designing spaces that reflect the people who live in them</h1>
+    </div>
+  </section>
+
+  <app-about></app-about>
+
+  <section class="content-wrap">
+    <div class="max-w-screen-2xl mx-auto px-[5vw] py-20">
+      <h2 class="section-title reveal-fade-up">Our Values</h2>
+      <div class="values-grid">
+        @for (value of values; track value.title; let i = $index) {
+          <article class="value-card reveal-fade-up" [style.animation-delay]="i * 0.12 + 's'">
+            <h3>{{ value.title }}</h3>
+            <p>{{ value.copy }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

@@ -1,36 +1,82 @@
-# Sketchomes
+# Sketchomes Website (Angular)
 
-## Installation
+Production website for Sketchomes, an interior design studio focused on residential and commercial spaces.
 
-To get started, follow these steps:
+## Stack
 
-1. Clone this repository to your local machine.
+- Angular 21 standalone components
+- Angular Router with lazy-loaded routes
+- Tailwind CSS 4
+- Three.js for interactive 360 viewer
 
-```bash
-git clone https://github.com/haroonsaifi17/Sketchomes.git && cd Sketchomes
-```
-
-2. Install project dependencies using npm
+## Quick start
 
 ```bash
 npm install
+npm start
 ```
 
-## Usage
+Open `http://localhost:4200`.
 
-To run the app, use the following command:
+Build for production:
 
 ```bash
-ng serve
+npm run build
 ```
 
-The client app will be accessible at [http://localhost:4200](http://localhost:4200).
+## Project structure
 
-### Contribution:
+- `src/app/pages/` route pages (`home`, `about`, `services`, `projects`, `contact`, `inquiry`, `not-found`)
+- `src/app/components/` reusable sections (`navbar`, `hero`, `about`, `photo-sphere`, `info`, `project-type`, `footer`)
+- `src/app/services/seo.service.ts` runtime SEO/meta updater
+- `src/assets/images/` optimized image assets (WebP)
+- `public/robots.txt` and `public/sitemap.xml` for crawler guidance
 
-Contributions are welcome! Feel free to submit pull requests or open issues for any suggestions, bug fixes, or improvements.
+## SEO improvements implemented
 
-### License:
+- Strong base metadata in `src/index.html`:
+  - title, description, keywords, robots, canonical
+  - Open Graph and Twitter card tags
+  - `LocalBusiness` JSON-LD structured data
+- Per-page dynamic SEO via `SeoService`:
+  - unique page title/description/canonical
+  - OG + Twitter tags updated on route change
+  - `noindex` set for not-found page
+- Crawl files:
+  - `robots.txt` points to sitemap
+  - `sitemap.xml` includes all public routes
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Image optimization work
 
+- Converted all remaining JPG UI assets to WebP:
+  - `bbg`, `commercial-s`, `hospitality-s`, `render`, `residential-s`, `retail-s`, `seo-bg`
+- Updated all app references from `.jpg` to `.webp`
+- Removed replaced JPG files from `src/assets/images/`
+- Added explicit width/height on major images to reduce CLS risk
+
+## 360 viewer notes
+
+- Panorama rendering is tuned for smoother/softer output:
+  - processed texture via canvas filter (brightness/contrast/saturation tuning)
+  - mipmap filtering and capped anisotropy
+  - viewport + DPR handling for stability
+- Uses `src/assets/images/render.webp` as source panorama.
+
+## Performance notes
+
+- Routes are lazy-loaded via `loadComponent` in `src/app/app.routes.ts`
+- Home page defers heavy sections (`@defer`) for faster initial paint
+- Scroll restoration enabled in router config
+
+## Scripts
+
+- `npm start` - dev server
+- `npm run build` - production build
+- `npm run test` - unit tests
+
+## Deployment checklist
+
+- Replace `https://sketchomes.in` if deploying to another domain:
+  - `src/index.html` canonical + OG + Twitter + JSON-LD URLs
+  - `public/sitemap.xml`
+  - `public/robots.txt`

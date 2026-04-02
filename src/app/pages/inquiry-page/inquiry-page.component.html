@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<main>
+  <section class="hero-banner" style="background-image: url('/assets/images/bbg.webp')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content max-w-screen-2xl mx-auto px-[5vw]">
+      <p class="hero-kicker">Quick Inquiry</p>
+      <h1 class="hero-title">Share your requirements and get a call back</h1>
+    </div>
+  </section>
+
+  <section class="content-wrap">
+    <div class="max-w-screen-xl mx-auto px-[5vw] py-20">
+      <form class="inquiry-form reveal-fade-up" (ngSubmit)="submitInquiry()">
+        <h2>Project Brief</h2>
+        <div class="row-grid">
+          <label>
+            Full Name
+            <input
+              [(ngModel)]="fullName"
+              name="fullName"
+              type="text"
+              autocomplete="name"
+              required
+            />
+          </label>
+          <label>
+            City
+            <input
+              [(ngModel)]="city"
+              name="city"
+              type="text"
+              autocomplete="address-level2"
+              required
+            />
+          </label>
+        </div>
+        <div class="row-grid">
+          <label>
+            Project Type
+            <select [(ngModel)]="projectType" name="projectType">
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Retail">Retail</option>
+              <option value="Hospitality">Hospitality</option>
+            </select>
+          </label>
+          <label>
+            Estimated Budget
+            <input [(ngModel)]="budget" name="budget" type="text" autocomplete="off" required />
+          </label>
+        </div>
+        <label>
+          Tell us about your space
+          <textarea [(ngModel)]="details" name="details" rows="6" required></textarea>
+        </label>
+        <button type="submit">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

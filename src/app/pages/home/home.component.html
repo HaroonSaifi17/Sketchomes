@@ -1,7 +1,26 @@
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
+
+<main class="home-main">
   <app-hero></app-hero>
   <app-about></app-about>
-  <app-photo-sphere></app-photo-sphere>
-  <app-info></app-info>
-  <app-project-type></app-project-type>
-  <app-footer></app-footer>
+
+  @defer (on viewport) {
+    <app-photo-sphere></app-photo-sphere>
+  } @placeholder {
+    <div class="section-placeholder"></div>
+  }
+
+  @defer (on viewport) {
+    <app-info></app-info>
+  } @placeholder {
+    <div class="section-placeholder section-placeholder-light"></div>
+  }
+
+  @defer (on idle) {
+    <app-project-type></app-project-type>
+  } @placeholder {
+    <div class="section-placeholder"></div>
+  }
+</main>
+
+<app-footer></app-footer>

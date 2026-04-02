@@ -7,16 +7,14 @@ import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@
   templateUrl: './info.component.html',
   styleUrl: './info.component.css',
 })
-export class InfoComponent implements AfterViewInit{
-   @ViewChild('bg') bgElement!: ElementRef<HTMLDivElement>;
-
-  constructor() {}
+export class InfoComponent implements AfterViewInit {
+  @ViewChild('bg') bgElement!: ElementRef<HTMLDivElement>;
 
   ngAfterViewInit() {
     this.onWindowScroll();
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onWindowScroll() {
     const element = this.bgElement.nativeElement;
     const rect = element.getBoundingClientRect();

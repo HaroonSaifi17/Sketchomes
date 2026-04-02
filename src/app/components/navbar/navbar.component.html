@@ -3,13 +3,13 @@
   <div class="mx-auto max-w-screen-2xl py-6 max-md:py-4 px-[5vw]">
     <div class="flex text-xs justify-between items-center">
       <div class="hidden max-md:block">
-        <a class="font-[oP] uppercase text-xl" href="/"> Sketchomes </a>
+        <a class="font-[oP] uppercase text-xl" routerLink="/"> Sketchomes </a>
       </div>
       <div class="ml-auto px-4 text-sm md:hidden">
-        <a href="tel://+917011764114">Call Now</a>
+        <a href="tel:+917011764114">Call Now</a>
       </div>
       <div class="flex gap-4">
-        <a (click)="navState = !navState">
+        <a class="menu-toggle" (click)="toggleNav()">
           <div class="flex flex-col gap-[5px]">
             <div class="inline-block h-[2px] max-md:w-8 w-12 bg-white"></div>
             <div class="inline-block h-[2px] max-md:w-8 w-12 bg-white"></div>
@@ -17,70 +17,71 @@
           </div>
         </a>
         <ul class="flex gap-4 items-center max-md:hidden">
-          <li><a href="">HOME</a></li>
+          <li><a routerLink="/">HOME</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
-          <li><a href="">SERVICES</a></li>
+          <li><a routerLink="/services">SERVICES</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
-          <li><a href="">PROJECTS</a></li>
+          <li><a routerLink="/projects">PROJECTS</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
-          <li><a href="">CONTACT US</a></li>
+          <li><a routerLink="/contact">CONTACT US</a></li>
           <div class="inline-block w-[1.5px] h-4 bg-white"></div>
-          <li><a href="" class="blink">QUICK INQUIRY</a></li>
+          <li><a routerLink="/inquiry" class="blink">QUICK INQUIRY</a></li>
         </ul>
       </div>
       <div class="max-md:hidden">
-        <i class="fa-solid fa-phone mr-2"></i
-        ><a href="tel://7011764114">+91 7011764114</a>
+        <i class="fa-solid fa-phone mr-2"></i><a href="tel:+917011764114">+91 7011764114</a>
       </div>
     </div>
   </div>
 </div>
+
 <div
+  style="left: -100%"
   [style.left]="navState ? '-100%' : '0'"
-  class="bg-white ease-out z-30 fixed t1 top-0 px-[5vw] pt-6 left-0 h-[100vh] w-[30vw] max-md:w-[100vw]"
+  class="bg-white ease-out z-30 fixed t1 top-0 px-[5vw] pt-6 h-[100vh] w-[30vw] max-md:w-[100vw]"
 >
   <div class="flex flex-col gap-16">
-    <a (click)="navState = !navState">
+    <a class="menu-close" (click)="toggleNav()">
       <div class="w-8 h-8 flex flex-col justify-center">
-        <div
-          class="w-8 h-[2px] rotate-45 inline-block bg-black translate-y-[2px]"
-        ></div>
+        <div class="w-8 h-[2px] rotate-45 inline-block bg-black translate-y-[2px]"></div>
         <div class="w-8 h-[2px] -rotate-45 inline-block bg-black"></div>
       </div>
     </a>
-    <ul class="text-3xl flex flex-col gap-2 text-gray-400">
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Blogs</a></li>
-      <li><a href="#">Career</a></li>
-      <li><a href="#">FAQ's</a></li>
-      <li><a href="#">Contact Us</a></li>
+    <ul class="text-3xl flex flex-col gap-2 text-gray-400 side-nav-links">
+      <li><a routerLink="/about" (click)="closeNav()">About Us</a></li>
+      <li><a routerLink="/services" (click)="closeNav()">Services</a></li>
+      <li><a routerLink="/projects" (click)="closeNav()">Projects</a></li>
+      <li><a routerLink="/inquiry" (click)="closeNav()">Quick Inquiry</a></li>
+      <li><a routerLink="/contact" (click)="closeNav()">Contact Us</a></li>
     </ul>
   </div>
 </div>
+
 <div
-  (click)="navState = !navState"
+  style="display: none"
+  (click)="closeNav()"
   [style.display]="navState ? 'none' : 'block'"
   class="fixed h-full duration-500 opacity-20 w-full bg-black z-20"
 ></div>
 <div
-  class="md:hidden text-white fixed bottom-0 left-0 flex z-40 text-xs border-b-[70px] mb-[-70px] border-b-black bg-black w-full"
+  class="md:hidden text-white fixed bottom-0 left-0 flex z-40 text-xs border-b-[70px] mb-[-70px] border-b-black bg-black w-full mobile-quickbar"
 >
   <div class="flex-1 text-center border-gray-200 border py-2">
-    <a class="font-[Masionlight]" href="tel://+917011764114"> Call Now</a>
+    <a class="font-[Masionlight] quick-link" href="tel:+917011764114"> Call Now</a>
   </div>
   <div class="flex-1 text-center border-gray-200 border py-2">
-    <a class="font-[Masionlight]" href=""> Projects</a>
+    <a class="font-[Masionlight] quick-link" routerLink="/projects"> Projects</a>
   </div>
   <div class="flex-1 text-center border-gray-200 border py-2">
-    <a class="font-[Masionlight] blink" href=""> Quick Inquiry</a>
+    <a class="font-[Masionlight] blink quick-link" routerLink="/inquiry"> Quick Inquiry</a>
   </div>
 </div>
+
 <div class="fixed bottom-14 right-6 md:hidden z-40">
   <a
-    class="p-4 bg-black border border-white rounded-full text-white aspect-square flex justify-center items-center"
-    href="tel://+917011764114"
-    ><i class="fa-solid fa-phone"></i
-  ></a>
+    class="p-4 bg-black border border-white rounded-full text-white aspect-square flex justify-center items-center float-call-btn"
+    href="tel:+917011764114"
+  >
+    <i class="fa-solid fa-phone"></i>
+  </a>
 </div>

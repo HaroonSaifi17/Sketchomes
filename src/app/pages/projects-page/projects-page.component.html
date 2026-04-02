@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<main>
+  <section class="hero-banner" style="background-image: url('/assets/images/hero3.webp')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content max-w-screen-2xl mx-auto px-[5vw]">
+      <p class="hero-kicker">Projects</p>
+      <h1 class="hero-title">A portfolio of bespoke, functional and luxurious interiors</h1>
+    </div>
+  </section>
+
+  <section class="content-wrap">
+    <div class="max-w-screen-2xl mx-auto px-[5vw] py-20">
+      <div class="projects-grid">
+        @for (project of projects; track project.title; let i = $index) {
+          <article
+            class="project-item reveal-fade-up"
+            [style.animation-delay]="i * 0.12 + 's'"
+            [style.background-image]="'url(' + project.image + ')'"
+          >
+            <div class="project-meta">
+              <p>{{ project.type }}</p>
+              <h2>{{ project.title }}</h2>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

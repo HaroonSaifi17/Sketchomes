@@ -1,6 +1,44 @@
-.bbg{
-  background: url(/assets/images/bbg.jpg) no-repeat center center/cover;
+.bbg {
+  background: url(/assets/images/bbg.webp) no-repeat center center/cover;
 }
+
 .hide-scroll::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+.project-card {
+  transform: translateY(0);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealFadeUp 0.75s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+@keyframes revealFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card h2 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    padding: 18px !important;
+  }
 }

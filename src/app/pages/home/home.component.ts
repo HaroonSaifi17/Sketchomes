@@ -6,14 +6,31 @@ import { PhotoSphereComponent } from '../../components/photo-sphere/photo-sphere
 import { InfoComponent } from '../../components/info/info.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProjectTypeComponent } from '../../components/project-type/project-type.component';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent,HeroComponent,AboutComponent, PhotoSphereComponent,InfoComponent,FooterComponent,ProjectTypeComponent],
+  imports: [
+    NavbarComponent,
+    HeroComponent,
+    AboutComponent,
+    PhotoSphereComponent,
+    InfoComponent,
+    FooterComponent,
+    ProjectTypeComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
+  constructor(private readonly seoService: SeoService) {
+    this.seoService.update({
+      title: 'Luxury Interior Design Studio in Gurgaon & Delhi NCR',
+      description:
+        'Sketchomes designs luxurious residential, commercial, retail, and hospitality spaces with turnkey interior execution across Gurgaon and Delhi NCR.',
+      path: '/',
+      image: '/assets/images/hero1.webp',
+    });
+  }
 }

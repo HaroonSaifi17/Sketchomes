@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css',
 })
-export class HeroComponent implements OnInit{
-  public selectImg: number = 0;
+export class HeroComponent implements OnInit, OnDestroy {
+  selectImg = 0;
+  private intervalId?: ReturnType<typeof setInterval>;
 
   ngOnInit() {
-    setInterval(() => {
-      if (this.selectImg == 2) {
+    this.intervalId = setInterval(() => {
+      if (this.selectImg === 2) {
         this.selectImg = 0;
+      } else {
+        this.selectImg = this.selectImg + 1;
       }
-      else{
-      this.selectImg = this.selectImg + 1;
-      }
-    },5000);
+    }, 5000);
+  }
+
+  ngOnDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 }

@@ -1,3 +1,47 @@
-.seo-bg{
-  background: url(/assets/images/seo-bg.jpg) no-repeat center center/cover;
+.seo-bg {
+  background: url(/assets/images/seo-bg.webp) no-repeat center center/cover;
+}
+
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealFadeUp 0.75s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.info-card {
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  opacity: 1;
+}
+
+@keyframes revealFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .info-card {
+    width: calc(100vw - 10vw) !important;
+    right: 5vw !important;
+    padding: 20px;
+  }
 }

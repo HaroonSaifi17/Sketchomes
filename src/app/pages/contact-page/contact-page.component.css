@@ -1,0 +1,128 @@
+.hero-banner {
+  min-height: 60vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.78) 8%, rgba(0, 0, 0, 0.2) 56%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
+  animation: revealFadeUp 0.8s ease forwards;
+}
+
+.hero-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f6d49e;
+  margin: 0 0 8px;
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 720px;
+  font-size: clamp(2rem, 4.7vw, 4.2rem);
+  line-height: 1.07;
+  font-family: oP, serif;
+  color: white;
+}
+
+.content-wrap {
+  background: #faf7f2;
+}
+
+.contact-info h2 {
+  margin: 0 0 12px;
+  font-family: oP, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.contact-info p,
+.contact-info a {
+  margin: 0 0 10px;
+  display: block;
+  color: #222;
+  line-height: 1.7;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-info a:hover {
+  color: #b58b5a;
+  transform: translateX(2px);
+}
+
+.contact-form {
+  background: white;
+  border: 1px solid #ddd2c5;
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+  transition: box-shadow 0.35s ease;
+}
+
+.contact-form:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+  display: grid;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 11px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #cfc2b3;
+  padding: 11px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #b58b5a;
+}
+
+.contact-form button {
+  margin-top: 4px;
+  border: 1px solid #b58b5a;
+  background: #b58b5a;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.contact-form button:hover {
+  background: #9f7749;
+}
+
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: revealFadeUp 0.75s ease forwards;
+}
+
+@keyframes revealFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
